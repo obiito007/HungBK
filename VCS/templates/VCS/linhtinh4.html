@@ -1,0 +1,18 @@
+{% extends "VCS/base.html" %}
+{% block content %}
+ <h3>File này ko thích hợp</h3>
+{% endblock content %}
+
+{% block menubar %}
+<div id="menubar">
+      <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li ><a href="/">Trang chủ</a></li>
+          <li><a href="/tao">Tạo khóa</a></li>
+          <li><a href="/bang">Danh sách chữ ký</a></li>
+          <li class="selected"><a href="/kianh">Ký ảnh</a></li>
+          <li><a href="/list">Diễn đàn</a></li>
+          <li><a href="/xacthuc">Xác thực ảnh</a></li>
+        </ul>  
+</div>                  
+{% endblock menubar %}

@@ -1,0 +1,32 @@
+{% extends "VCS/base.html" %}
+{% block content %}
+<h1>Chào mừng tới web luận văn</h1>
+        <p>Trang web được viết bằng framework Django bằng ngôn ngữ python kết hợp với các ngôn ngữ web như HTML,CSS,JavaScript,...</p>
+        <p>Đề tài được hướng dẫn bởi thầy <strong>Nguyễn Thanh Tuấn</strong> và thực hiện trong 5 tháng</p>
+        <p>Trang web được lấy ý tưởng từ một số công việc cụ thể trong văn phòng khoa như việc sinh viên nộp các giấy tờ cho bộ môn có chữ ký của giáo viên </p>
+        <p>Việc ký giấy tờ bằng tay có thể được thay thế bằng ký số giúp tăng tính an toàn,rút gọn thời gian cho giáo viên, sinh viên,thư ký bộ môn ,giảm thiểu văn bản giấy cũng như tạo tính đồng bộ</p>
+        <h2>Các chức năng của web</h2>
+        <ul>
+          <li>Người dùng tạo chữ ký số</li>
+          <li>Người dùng ký vào ảnh số </li>
+          <li>Chữ ký được nhúng vào ảnh kèm theo các ghi chú của người dùng </li>
+          <li>Đăng ảnh lên diễn đàn</li>
+          <li>Người dùng xác thực các ảnh được đăng lên</li>
+        </ul>
+        <p>Hiện tại web chỉ hỗ trợ việc ký vào ảnh có kích thước chiều dài và rộng nhỏ hơn 510 pixel và không hỗ trợ việc ký các định dạng file khác . Quý khách lưu ý nhằm mang lại trải nghiệm tốt nhất </p>
+        <p>Chức năng tạo khóa và ký ảnh chỉ khả dụng khi đăng nhập và được cấp quyền truy cập bởi quản trị viên </p>
+{% endblock content %}
+
+{% block menubar %}
+<div id="menubar">
+      <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li class="selected"><a href="/">Trang chủ</a></li>
+          <li><a href="/tao">Tạo khóa</a></li>
+          <li><a href="/bang">Danh sách chữ ký</a></li>
+          <li><a href="/kianh">Ký ảnh</a></li>
+          <li><a href="/list">Diễn đàn</a></li>
+          <li><a href="/xacthuc">Xác thực ảnh</a></li>
+        </ul>  
+</div>                  
+{% endblock menubar %}

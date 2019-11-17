@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="vi">
+
+<head>
+ {% load staticfiles %}
+  <title>LVTN</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="{%static 'style.css' %}" title="style" />
+  
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="/">CHỮ KÝ SỐ<span class="logo_colour">VÀ ỨNG DỤNG</span></a></h1>
+          <h2>Khoa Điện-Điện tử, Bộ môn Viễn thông</h2>
+        </div>
+      </div>
+     
+      {% block menubar %}
+                        
+        {% endblock menubar %}
+        
+      
+    </div>
+    <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        {% if user.username %}
+		            <p> Xin chào {{user.username}}</p>
+		            <p><a href = "{% url 'logout' %}"> Đăng xuất </a></p>
+	      {% else %}
+	                <p><a href = "{% url "register" %}"> Đăng ký </a>|<a href = "{% url 'login' %}"> Đăng nhập </a></p>
+	      {% endif %}
+        <h3>Tin mới nhất</h3>
+        <h4>Cập nhật lần cuối</h4>
+        <h5>November 16th, 2019</h5>
+        <p>Cải tiến các tính năng của web<br /><a href="#">Read more</a></p>
+        <p></p>
+        <h4>Thông tin quản trị viên</h4>
+        <p>Sv Nguyễn Huỳnh Hùng</span>
+        <p>Khoa: Điện-Điện tử<br /><a href="http://www.dee.hcmut.edu.vn/" target="_blank">Xem</a></p>
+        <p>Bộ môn: Viễn thông<br /><a href="http://dte.dee.hcmut.edu.vn/" target="_blank">Xem</a></p>
+        <p>Email: hungnguyenjun20@gmail.com </p>
+        <h5>Các đường dẫn liên quan</h5>
+        <ul>
+          <li><a href="https://vi.wikipedia.org/wiki/Ch%E1%BB%AF_k%C3%BD_s%E1%BB%91"target="_blank">Chữ ký số</a></li>
+          <li><a href="https://vi.wikipedia.org/wiki/Thu%E1%BB%B7_v%C3%A2n_s%E1%BB%91"target="_blank">Thủy vân số</a></li>
+          <li><a href="https://vi.wikipedia.org/wiki/Python_(ng%C3%B4n_ng%E1%BB%AF_l%E1%BA%ADp_tr%C3%ACnh)"target="_blank">Python</a></li>
+          <li><a href="https://vi.wikipedia.org/wiki/Website"target="_blank">Web</a></li>
+        </ul>
+        <h3>Search</h3>
+        <form method="post" action="#" id="search_form">
+          <p>
+            {% csrf_token %}
+            <input class="search" type="text" name="search_field" value="" />
+            <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="{%static 'search.png' %}" alt="Search" title="Search" />
+          </p>
+        </form>
+      </div>
+      <div id="content" class ="show_2">
+        <!-- insert the page content here -->
+        {% block content %}
+                        
+        {% endblock content %}
+      </div>
+    </div>
+    
+    <div id="content_footer"></div>
+    <div id="footer">
+      Copyright 2019 Nguyễn Huỳnh Hùng  <a href="https://www.facebook.com/huynh.hung.370" target="_blank"> Liên hệ:Facebook</a>
+    </div>
+  </div>
+</body>
+</html>

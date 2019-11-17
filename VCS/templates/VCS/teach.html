@@ -1,0 +1,32 @@
+{% extends "VCS/base.html" %}
+{% block content %}
+<h2>Hướng dẫn</h2>
+<p> Quý khách sử dụng khóa bí mật của mình để ký  </p>
+<p> Quý khách điền MSSV của sinh viên và nội dung ký vào form tương ứng </p>
+<p> Quý khách dán đường dẫn đến ảnh cần ký vào form Path image </p>
+<p> Chữ ký và các nội dung ký sẽ được nhúng vào ảnh và tự động tải về thư mục chứa ảnh cần ký trong máy của quý khách</p>
+<p> Quý khách chọn mục up ảnh để đăng các ảnh cần ký lên diễn đàn (lưu ý ảnh đã đăng không thể gỡ)</p>
+<form method="post" action="" >
+		{% csrf_token %}
+        {{form.as_p}}
+		<button type="submit">Ký ảnh</button>
+</form>
+<form method="post" action="/up/" >
+	{% csrf_token %}
+	<button type="submit">Up ảnh</button>
+</form>
+{% endblock content %}
+
+{% block menubar %}
+<div id="menubar">
+      <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li ><a href="/">Trang chủ</a></li>
+          <li><a href="/tao">Tạo khóa</a></li>
+          <li><a href="/bang">Danh sách chữ ký</a></li>
+          <li class="selected"><a href="/kianh">Ký ảnh</a></li>
+          <li><a href="/list">Diễn đàn</a></li>
+          <li><a href="/xacthuc">Xác thực ảnh</a></li>
+        </ul>  
+</div>                  
+{% endblock menubar %}

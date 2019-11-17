@@ -1,0 +1,31 @@
+{% extends "VCS/base.html" %}
+{% block content %}
+<h2>Hướng dẫn</h2>
+<p> Quý khách chọn mã số cán bộ của giảng viên mà quy khách muốn xác thực  </p>
+<p> Hệ thống tự động xác thực hết các ảnh trên diễn đàn có MSCB phù hợp </p>
+<p> Quý khách có thể tải file excel chứa thông tin xác thực về máy </p>
+
+<form method="post" action="" >
+		{% csrf_token %}
+        {{form.as_p}}
+		<button type="submit">OK</button>
+</form>
+<form method="post" action="/danh/" >
+		{% csrf_token %}
+		<button type="submit">Danh sách xác thực</button>
+</form>
+{% endblock content %}
+
+{% block menubar %}
+<div id="menubar">
+      <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li ><a href="/">Trang chủ</a></li>
+          <li><a href="/tao">Tạo khóa</a></li>
+          <li><a href="/bang">Danh sách chữ ký</a></li>
+          <li><a href="/kianh">Ký ảnh</a></li>
+          <li><a href="/list">Diễn đàn</a></li>
+          <li class="selected"><a href="/xacthuc">Xác thực ảnh</a></li>
+        </ul>  
+</div>                  
+{% endblock menubar %}

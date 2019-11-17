@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+    <title>Document</title>
+</head>
+<body>
+     <style>
+            body { 
+                background: url('https://zicxa.com/hinh-anh/wp-content/uploads/2019/06/Tuy%E1%BB%83n-t%E1%BA%ADp-h%C3%ACnh-n%E1%BB%81n-4K-d%C3%A0nh-cho-m%C3%A1y-t%C3%ADnh-%C4%91%E1%BA%B9p-5.jpg') no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+               }
+               
+               .panel-default {
+                opacity: 0.9;
+                margin-top:1000px;
+               }
+               .form-group.last {
+                margin-bottom:0px;
+               }
+                              
+     </style>  
+     <div class="container bootstrap snippet">  
+                      
+                            <div class="panel-body">
+                                    <form method ='POST'>
+                                            {% csrf_token %}
+                                            {% for key,value in form.errors.item %}
+                                                {{value}}
+                                            {% endfor %}
+                                            <center>
+                                                <p><label>Tài khoản:</label>{{form.username}}</p>
+                                                <p><label>Mật khẩu:</label>{{form.password}}</p>
+                                                <input type="hidden" name = 'next' value="/"/>
+                                                <input type="submit" value="Đăng nhập"/>
+                                            </center>
+                                        </form>
+                       
+                </div> 
+            </div> 
+</body>
+</html>

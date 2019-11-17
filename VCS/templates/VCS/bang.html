@@ -1,0 +1,42 @@
+{% extends "VCS/base.html" %}
+
+
+
+{% block content %}
+<table class="table table-hover table-dark">
+    <thead class="thead-dark">
+        <tr>
+            <th>MSCB</th>
+            <th>Name</th>
+            <th>Pub Key</th>
+            <th>Pub N</th>
+            <th>Tài khoản tạo</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for video in allaccs %}
+        <tr>
+            <td><b><p class ="text-warning">{{ video.MSCB }}</p></b></td>
+            <td><b><p class ="text-info">{{ video.Giaovien }}</p></b></td>
+            <td><b><p class ="text-primary">{{ video.Pubkey }}</p></b></td>
+            <td><b><p class ="text-info">{{ video.PubN }}</p></b></td>
+            <td><b><p class ="text-info">{{  video.UserRegis }}</p></b></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+{% endblock content %}
+
+{% block menubar %}
+<div id="menubar">
+      <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="/">Trang chủ</a></li>
+          <li><a href="/tao">Tạo khóa</a></li>
+          <li  class="selected"><a href="/bang">Danh sách chữ ký</a></li>
+          <li><a href="/kianh">Ký ảnh</a></li>
+          <li><a href="/list">Diễn đàn</a></li>
+          <li><a href="/xacthuc">Xác thực ảnh</a></li>
+        </ul>  
+</div>                  
+{% endblock menubar %}

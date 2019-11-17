@@ -1,0 +1,35 @@
+{% extends "VCS/base.html" %}
+
+{% block content  %}
+<h2>Hướng dẫn</h2>
+<p> Quý khách chọn tên và điền mã số cán bộ của mình vào form  </p>
+<p> Nếu không thấy tên phù hợp vui lòng liên hệ quản trị viên </p>
+<p> Quý khách điền hai số nguyên tố khác nhau vào form (Số nguyên tố nhỏ hơn 100) </p>
+<p> Khóa chỉ được tạo một lần, quý khách vui lòng ghi nhớ khóa bí mật của mình. Nếu mất khóa bí mật vui lòng liên hệ quản trị viên để được cấp lại </p>
+
+<form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        Nhập tên:<br/>
+        <p>{{ form.Ten }}</p>
+        Nhập MSCB:<br/>
+        <p>{{ form.MSCB }}</p>
+        Nhập số nguyên tố a:<br/>
+        <p>{{ form.a }}</p>
+        Nhập số nguyên tố b(a#b):<br/>
+        <p>{{ form.b }}</p> 
+        <input type="submit" value="Tính khóa" />
+    </form>
+{% endblock  %}
+{% block menubar %}
+<div id="menubar">
+     <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li ><a href="/">Trang chủ</a></li>
+          <li class="selected"><a href="/tao">Tạo khóa</a></li>
+          <li><a href="/bang">Danh sách chữ ký</a></li>
+          <li><a href="/kianh">Ký ảnh</a></li>
+          <li><a href="/list">Diễn đàn</a></li>
+          <li><a href="/xacthuc">Xác thực ảnh</a></li>
+        </ul>  
+</div>                 
+{% endblock menubar %}

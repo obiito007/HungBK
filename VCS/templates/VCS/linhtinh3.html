@@ -1,0 +1,43 @@
+{% extends "VCS/base.html" %}
+{% block content %}
+ <h3>{{c}}</h3>
+ <table class="table table-hover table-dark">
+    <thead class="thead-dark">
+        <tr>
+            <th>MSCB</th>
+            <th>Giáo viên</th>
+            <th>MSSV</th>
+            <th>Trạng thái</th>
+            <th>Ghi chú</th>
+            <th>Ngày đăng</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for video in allaccs %}
+        <tr>
+            <td><b><p class ="text-info">{{ video.MSCB }}</p></b></td>
+            <td><b><p class ="text-info">{{ video.Giaovien }}</p></b></td>
+            <td><b><p class ="text-info">{{ video.MSSV }}</p></b></td>
+            <td><b><p class ="text-info">{{ video.Trangthai }}</p></b></td>
+            <td><b><p class ="text-info">{{ video.Ghichu }}</p></b></td>
+            <td><b><p class ="text-info">{{ video.date }}</p></b></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+<h3 ><a href="{% url 'export_users_xls' %}" style="background-color:#ffffa0">Tải file excel</a></h3>
+{% endblock content %}
+
+{% block menubar %}
+<div id="menubar">
+      <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li ><a href="/">Trang chủ</a></li>
+          <li><a href="/tao">Tạo khóa</a></li>
+          <li><a href="/bang">Danh sách chữ ký</a></li>
+          <li><a href="/kianh">Ký ảnh</a></li>
+          <li><a href="/list">Diễn đàn</a></li>
+          <li class="selected"><a href="/xacthuc">Xác thực ảnh</a></li>
+        </ul>  
+</div>                  
+{% endblock menubar %}
